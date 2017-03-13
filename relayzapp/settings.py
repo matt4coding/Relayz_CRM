@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     'relayzapp.accounts',
     'relayzapp.contacts',
     'relayzapp.communications',
+    'pipeline',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -134,11 +135,40 @@ if ENV_ROLE == 'production':
     import dj_database_url
     DATABASES['default'] =  dj_database_url.config()
 
-# Stripe Key Settings
-# STRIPE_SECRET_KEY = get_env_variable('STRIPE_SECRET_KEY')
-# STRIPE_PUBLISHABLE_KEY = get_env_variable('STRIPE_PUBLISHABLE_KEY')
-#
-# # Current Subscription Price
-# SUBSCRIPTION_PRICE = 150
+#Stripe Key Settings
+STRIPE_SECRET_KEY = get_env_variable('STRIPE_SECRET_KEY')
+STRIPE_PUBLISHABLE_KEY = get_env_variable('STRIPE_PUBLISHABLE_KEY')
+
+# Current Subscription Price
+SUBSCRIPTION_PRICE = 150
 
 LOGIN_REDIRECT_URL = '/account/list/'
+
+#django pipeline congig
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+PIPELINE_JS_COMPRESSOR = 'pipeline.compressors.jsmin.JSMinCompressor'
+PIPELINE_CSS_COMPRESSOR = 'mvp.plans.CSSMin.CSSCompressor'
+
+PIPELINE_CSS = {
+    'site_css': {
+        'source_filenames': (
+          'css/bootstrap.min.css',
+          'css/app.css',
+        ),
+        'extra_context': {
+            'media': 'screen',
+        },
+        'output_filename': 'css/site.css',
+    },
+}
+
+PIPELINE_JS = {
+    'site_js': {
+        'source_filenames': (
+          'js/jquery.min.js',
+          'js/bootstrap.min.js',
+          'js/app.js',
+        ),
+        'output_filename': 'js/site.js',
+    }
+}

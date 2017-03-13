@@ -30,7 +30,11 @@
             {% endblock head_css_site %}
             {% block head_css_section %}{% endblock head_css_section %}
             {% block head_css_page %}{% endblock head_css_page %}
-        {% endblock head_css %}
+            <!-- {% block head_css_site %}         ON PRODUCTION UN COMMENT
+              {% load compressed %}                AND COMMENT OUT THE ABOVE
+                {% compressed_css 'site_css' %}
+              {% endblock head_css_site %}
+            {% endblock head_css %} -->
     </head>
     <body>
         {# Navigation Menu #}
@@ -83,6 +87,9 @@
             <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
             <script src="{{ STATIC_URL }}js/app.js"></script>
         {% endblock footer_javascript_site %}
+        <!-- {% block footer_javascript_site %}       ON PRODUCTION UNCOMMENT
+            {% compressed_js 'site_js' %}             AND COMMENT OUT THE ABOVE
+        {% endblock footer_javascript_site %} -->
         {% block footer_javascript_section %}{% endblock footer_javascript_section %}
         {% block footer_javascript_page %}{% endblock footer_javascript_page %}
     {% endblock footer_javascript %}

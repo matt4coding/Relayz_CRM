@@ -1,10 +1,13 @@
 appdirs==1.4.3
+csscompressor==0.9.4
 dj-database-url==0.3.0
 dj-static==0.0.6
 Django==1.7.1
+django-pipeline==1.6.12
 django-shortuuidfield==0.1.2
 django-toolbelt==0.0.1
 gunicorn==19.1.1
+jsmin==2.2.1
 packaging==16.8
 psycopg2==2.7
 pyparsing==2.2.0
