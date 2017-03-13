@@ -1,0 +1,15 @@
+appdirs==1.4.3
+dj-database-url==0.3.0
+dj-static==0.0.6
+Django==1.7.1
+django-shortuuidfield==0.1.2
+django-toolbelt==0.0.1
+gunicorn==19.1.1
+packaging==16.8
+psycopg2==2.7
+pyparsing==2.2.0
+requests==2.13.0
+shortuuid==0.4.2
+six==1.10.0
+static3==0.5.1
+stripe==1.48.1
